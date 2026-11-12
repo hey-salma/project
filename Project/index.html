@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anmol Clinic - Advanced Healthcare Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1> Anmol Clinic & Healthcare Portal</h1>
+    <p>Patient Triage, Appointment Scheduling & Live Records Management</p>
+  </header>
+
+  <!-- Analytics Summary Row -->
+  <section class="analytics-row">
+    <div class="stat-card">
+      <span class="stat-num" id="stat-total">0</span>
+      <span class="stat-label">Total Bookings</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" id="stat-pending">0</span>
+      <span class="stat-label">Pending Consultations</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" id="stat-completed">0</span>
+      <span class="stat-label">Completed Visits</span>
+    </div>
+  </section>
+
+  <main class="portal-container">
+    
+    <!-- Booking Form Card -->
+    <section class="card form-section">
+      <h2>Book New Appointment</h2>
+      <form id="appointment-form">
+        
+        <div class="form-group">
+          <label for="patient-name">Patient Full Name</label>
+          <input type="text" id="patient-name" placeholder="e.g. Rahima Khatun" required>
+        </div>
+
+        <div class="form-group">
+          <label for="doctor">Select Specialist / Doctor</label>
+          <select id="doctor" required>
+            <option value="" disabled selected>Choose Specialist</option>
+            <option value="Dr. A. Rahman (General Ayurvedic)">Dr. A. Rahman (General Ayurvedic)</option>
+            <option value="Dr. S. Khan (Homeopathy)">Dr. S. Khan (Homeopathy)</option>
+            <option value="Dr. M. Ali (Consultant Physician)">Dr. M. Ali (Consultant Physician)</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="app-date">Appointment Date</label>
+            <input type="date" id="app-date" required>
+          </div>
+
+          <div class="form-group">
+            <label for="app-time">Time Slot</label>
+            <select id="app-time" required>
+              <option value="" disabled selected>Select Slot</option>
+              <option value="09:00 AM">09:00 AM</option>
+              <option value="11:30 AM">11:30 AM</option>
+              <option value="04:00 PM">04:00 PM</option>
+              <option value="06:30 PM">06:30 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="triage-level">Triage Priority</label>
+          <select id="triage-level" required>
+            <option value="Routine" selected>Routine Visit</option>
+            <option value="Follow-up">Follow-Up Consultation</option>
+            <option value="Urgent"> Urgent Attention</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="symptoms">Primary Health Concern / Notes</label>
+          <textarea id="symptoms" rows="3" placeholder="Describe symptoms or medical reason for visit..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Confirm & Register Booking</button>
+      </form>
+    </section>
+
+    <!-- Schedule List & Controls -->
+    <section class="card schedule-section">
+      <div class="schedule-header">
+        <h2>Active Patient Directory</h2>
+        <span id="appointment-badge" class="badge">0 Records</span>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="🔍 Search by patient or doctor name...">
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Scheduled">Scheduled</button>
+        <button class="filter-btn" data-filter="Completed">Completed</button>
+        <button class="filter-btn" data-filter="Urgent">Urgent Only</button>
+      </div>
+
+      <div id="appointment-list" class="appointment-list">
+        <p class="empty-state">No medical appointments booked yet.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
